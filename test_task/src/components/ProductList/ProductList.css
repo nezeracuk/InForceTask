@@ -1,0 +1,117 @@
+.product-list {
+    padding: 30px;
+    max-width: 800px;
+    margin: 50px auto;
+    background: #f0f4f8;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-list h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.product-list button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #4caf50;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-list button:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #dfe6e9;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-list li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-list li h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.product-list li p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.actions button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions button:hover {
+    transform: translateY(-2px);
+}
+
+.actions button:first-child {
+    background: #3498db;
+    color: white;
+}
+
+.actions button:first-child:hover {
+    background: #2980b9;
+}
+
+.actions button:nth-child(2) {
+    background: #f1c40f;
+    color: white;
+}
+
+.actions button:nth-child(2):hover {
+    background: #f39c12;
+}
+
+.actions button:last-child {
+    background: #e74c3c;
+    color: white;
+}
+
+.actions button:last-child:hover {
+    background: #c0392b;
+}
