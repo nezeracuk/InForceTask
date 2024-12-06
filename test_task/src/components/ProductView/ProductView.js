@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as dynamicId } from 'uuid';
 import DeleteModal from '../Modals/DeleteModal';
+import AddEditModal from '../Modals/AddEditModal';
 import {
     fetchProductById,
     fetchCommentsByProductId,
@@ -31,6 +32,7 @@ const ProductView = ({ productId, onBack }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [commentToDelete, setCommentToDelete] = useState(null);
     const [error, setError] = useState('');
 
@@ -100,13 +102,19 @@ const ProductView = ({ productId, onBack }) => {
                     <p className="product-details">
                         <span>Size:</span> {product.size.width} x {product.size.height}
                     </p>
-                    <button onClick={onBack} className="back-button">
-                        Back
-                    </button>
+
+                    <div className="button-container">
+                        <button onClick={onBack} className="back-button">Back</button>
+                        <button
+                            onClick={() => setIsEditModalOpen(true)}
+                            className="edit-button"
+                        >
+                            Edit
+                        </button>
+                    </div>
 
                     <div className="comments">
                         <h3>Comments</h3>
-
                         <CommentsList
                             comments={comments}
                             onDelete={(id) => {
@@ -134,6 +142,13 @@ const ProductView = ({ productId, onBack }) => {
                 <DeleteModal
                     onConfirm={handleDeleteComment}
                     onCancel={() => setIsDeleteModalOpen(false)}
+                />
+            )}
+
+            {isEditModalOpen && (
+                <AddEditModal
+                    data={product}
+                    onClose={() => setIsEditModalOpen(false)}
                 />
             )}
         </div>

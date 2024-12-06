@@ -27,24 +27,44 @@
     color: #333;
 }
 
-.back-button {
-    display: inline-block;
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back-button, .edit-button {
+    flex: 1;
+    max-width: 150px;
+    text-align: center;
     padding: 10px 18px;
-    background-color: #3498db;
-    color: white;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
-    text-align: center;
-    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.back-button {
+    background-color: #3498db;
+    margin-right: 10px;
 }
 
 .back-button:hover {
     background-color: #0f5887;
+    transform: translateY(-2px);
+}
+
+.edit-button {
+    background: #f1c40f;
+    margin-left: 10px;
+}
+
+.edit-button:hover {
+    background: #f39c12;
     transform: translateY(-2px);
 }
 
