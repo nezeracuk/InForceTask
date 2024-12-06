@@ -12,6 +12,7 @@ const ProductList = ({ onSelectProduct }) => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState(null);
     const [deletingProductId, setDeletingProductId] = useState(null);
+    const [sortOption, setSortOption] = useState('alphabetical');
 
     useEffect(() => {
         dispatch(fetchProducts());
@@ -32,15 +33,37 @@ const ProductList = ({ onSelectProduct }) => {
         setIsDeleteModalOpen(false);
     };
 
+    const handleSortChange = (e) => {
+        setSortOption(e.target.value);
+    };
+
+    const sortedProducts = [...products].sort((a, b) => {
+        if (sortOption === 'alphabetical') {
+            return a.name.localeCompare(b.name);
+        } else if (sortOption === 'count') {
+            return b.count - a.count;
+        }
+        return 0;
+    });
+
     return (
         <div className="product-list">
             <h1>Product List</h1>
             <button onClick={() => handleOpenAddEditModal()}>Add Product</button>
-            {products.length === 0 ? (
+
+            <div className="sort-options">
+                <label htmlFor="sort">Sort By: </label>
+                <select id="sort" value={sortOption} onChange={handleSortChange}>
+                    <option value="alphabetical">Alphabetical</option>
+                    <option value="count">Count</option>
+                </select>
+            </div>
+
+            {sortedProducts.length === 0 ? (
                 <p>Nothing here. Try to add something.</p>
             ) : (
                 <ul>
-                    {products.map((product) => (
+                    {sortedProducts.map((product) => (
                         <li key={product.id}>
                             <h3>{product.name}</h3>
                             <p>Count: {product.count}</p>
